@@ -1,0 +1,20 @@
+const express = require('express');
+var app = express();
+//정적인 파일을 불러오는 방법
+app.use(express.static('public'));
+//해당폴더에 있는 이미지를 주소록에서 바로 가져올 수 있음
+
+//express의 라우터 하는 방법 get('경로')
+app.get('/',function(req,res){
+    res.send('hello home page');
+});
+//이미지 불러오기
+app.get('/img',function(req,res){
+    res.send('Hello Img <img src="/bus.png">');
+})
+app.get('/login',function(req,res){
+    res.send('Login Page');
+});
+app.listen(3000,function(){
+    console.log(`Conneted 3000 port`);
+});
